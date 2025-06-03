@@ -28,10 +28,12 @@
   <a-assets>
     <img id="tex-mindread1" src="assets/mind-read1x.png">
     <img id="tex-mindread2" src="assets/mind-read2x.png">
+    <img id="tex-mindread3" src="assets/mind-read3x.png">
   </a-assets>
   <a-camera mindar-image-camera look-controls="enabled:false"></a-camera>
   <a-entity id="anchor-mindread1" mindar-image-target="targetIndex:0"></a-entity>
   <a-entity id="anchor-mindread2" mindar-image-target="targetIndex:1"></a-entity>
+  <a-entity id="anchor-mindread3" mindar-image-target="targetIndex:2"></a-entity>
 </a-scene>
 
 <script>
@@ -70,6 +72,17 @@ anchor2.addEventListener('targetFound', ()=>{
 });
 anchor2.addEventListener('targetLost', ()=>{
   anchor2.innerHTML = '';
+});
+
+// Marker 3 (index: 2)
+const anchor3 = document.getElementById('anchor-mindread3');
+anchor3.addEventListener('targetFound', ()=>{
+  anchor3.innerHTML = '';
+  const plane = makePlane('#tex-mindread3');
+  if (plane) anchor3.appendChild(plane);
+});
+anchor3.addEventListener('targetLost', ()=>{
+  anchor3.innerHTML = '';
 });
 </script>
 </body>
